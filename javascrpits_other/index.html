@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Boundaries by Time</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        #map {
+            height: 90vh;
+        }
+        #map1 {
+            height: 90vh;
+        }
+        #dropdown-container {
+            margin: 10px;
+        }
+        .section {
+            display: none;
+        }
+        .section.active {
+            display: block;
+        }
+    </style>
+    
+</head>
+<body>
+    <div id="button-container">
+        <button onclick="switchSection('section1')">Map by Time</button>
+        <button onclick="switchSection('section2')">Other Feature</button>
+        <button onclick="switchSection('section3')">Yet Another Feature</button>
+    </div>
+
+<!-- 第一個功能區域 -->
+    <div id="section1" class="section active">
+        <div id="dropdown-container">
+            <label for="time-period">Choose a time period: </label>
+            <select id="time-period">
+                <option value="1800">1800</option>
+                <option value="1815">1815</option>
+                <option value="1880">1880</option>
+                <option value="1900">1900</option>
+                <option value="1914">1914</option>
+                <option value="1920">1920</option>
+                <option value="1930">1930</option>
+                <option value="1938">1938</option>
+                <option value="1945">1945</option>
+                <option value="1960">1960</option>
+                <option value="1994">1994</option>
+            </select>
+        </div>
+        <div id="map"></div>
+    </div>
+
+        <!-- 第二個功能區域 -->
+    <div id="section2" class="section">
+        <h2>Other Feature</h2>
+        <div id="feature2-content">Content of Feature 2</div>
+        <div id="map1"></div>
+
+    </div>
+
+    <!-- 第三個功能區域 -->
+    <div id="section3" class="section">
+        <h2>Yet Another Feature</h2>
+        <div id="feature3-content">Content of Feature 3</div>
+    </div>
+
+
+    <script src="script.js"></script> <!-- 保留原功能 -->
+    <script src="feature2.js"></script> <!-- 第二個功能的邏輯 -->
+    <script src="feature3.js"></script> <!-- 第三個功能的邏輯 -->
+    <script>
+
+        function switchSection(sectionId) {
+            // 隱藏所有 section
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+    
+            // 顯示選中的 section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            } else {
+                console.error(`Section with ID "${sectionId}" not found.`);
+            }
+        }
+    </script>
+</body>
+</html>
