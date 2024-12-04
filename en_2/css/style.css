@@ -1,0 +1,24 @@
+body {
+    font-family: arial, sans-serif;
+  }
+  .section {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+  }
+  .section.active {
+    display: block;
+  }
+  .button-container {
+    margin-bottom: 20px;
+  }
+  button {
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+  }
+  #map1, #map2, #map3{
+    width: 100%;
+    height: 500px;
+  }
